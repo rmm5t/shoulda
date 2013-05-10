@@ -1,5 +1,7 @@
-PROJECT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..', '..')).freeze
-APP_NAME     = 'testapp'.freeze
+require "rails/version"
+PROJECT_ROOT  = File.expand_path(File.join(File.dirname(__FILE__), '..', '..')).freeze
+APP_NAME      = 'testapp'.freeze
+RAILS_VERSION = Rails::VERSION::STRING
 
 When /^I generate a new rails application$/ do
   steps %{
@@ -8,7 +10,7 @@ When /^I generate a new rails application$/ do
     And I write to "Gemfile" with:
       """
       source "http://rubygems.org"
-      gem 'rails', '3.0.12'
+      gem 'rails', '#{RAILS_VERSION}'
       gem 'sqlite3'
       """
     And I successfully run `bundle install --local`
@@ -37,14 +39,14 @@ When /^I configure the application to use shoulda-context$/ do
 end
 
 When /^I configure the application to use shoulda$/ do
-  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0', :require => false"
-  append_to_gemfile "gem 'shoulda-context', '~> 1.0', :require => false"
+  append_to_gemfile "gem 'shoulda-matchers', :require => false"
+  append_to_gemfile "gem 'shoulda-context', :require => false"
   append_to_gemfile "gem 'shoulda', :path => '../../..'"
   steps %{And I run `bundle install --local`}
 end
 
 When /^I configure the application to use shoulda-matchers$/ do
-  append_to_gemfile "gem 'shoulda-matchers', '~> 1.0'"
+  append_to_gemfile "gem 'shoulda-matchers'"
   steps %{And I run `bundle install --local`}
 end
 
