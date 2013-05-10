@@ -10,7 +10,7 @@ Aruba.configure do |config|
 end
 
 Before do
-  @aruba_timeout_seconds = 15
+  @aruba_timeout_seconds = 60
 
   if ENV['DEBUG']
     @puts = true
