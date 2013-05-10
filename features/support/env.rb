@@ -1,5 +1,14 @@
 require 'aruba/cucumber'
 
+BUNDLE_GEMFILE = ENV["BUNDLE_GEMFILE"]
+Aruba.configure do |config|
+  config.before_cmd do |cmd|
+    if cmd =~ /^bundle exec rake/
+      set_env("BUNDLE_GEMFILE", BUNDLE_GEMFILE) if BUNDLE_GEMFILE
+    end
+  end
+end
+
 Before do
   @aruba_timeout_seconds = 15
 
