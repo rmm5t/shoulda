@@ -8,6 +8,8 @@ gemfile:
   - gemfiles/rails-3.2.gemfile
   - gemfiles/rails-4.0.gemfile
 
+env: DEBUG=1
+
 matrix:
   allow_failures:
     - gemfile: gemfiles/rails-4.0.gemfile
