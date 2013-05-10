@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency("shoulda-context", ["~> 1.0", ">= 1.0.1"])
   s.add_dependency("shoulda-matchers", [">= 1.4.1", "< 3.0"])
 
-  s.add_development_dependency("rails", "~> 3.0.20")
   s.add_development_dependency("sqlite3", "~> 1.3")
   s.add_development_dependency("rspec-rails", "~> 2.7")
   s.add_development_dependency("cucumber", "~> 1.1")
