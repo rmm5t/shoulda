@@ -5,7 +5,7 @@
 Gemfile.lock
 coverage
 doc
-gemfiles
+gemfiles/*.lock
 pkg
 tags
 test/*/log/*.log
